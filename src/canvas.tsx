@@ -192,42 +192,80 @@ const CanvasComponent: React.FC = () => {
     }));
   };
 
-  return (<div>
-    <canvas 
-      ref={canvasRef}
-      width={500}
-      height={300}
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseUp}
-      style={{ border: '1px solid black' }}
-    />
+  return (<div className="flex flex-col space-x-6 items-start w-full justify-start p-4 lg:p-8 lg:flex-row">
     <div>
-        <h3>Rectangle 1</h3>
-        <label>X: <input type="number" value={rect1.position.x} onChange={(e) => handleInputChange(1, 'position', 'x', Number(e.target.value))} /></label>
-        <label>Y: <input type="number" value={rect1.position.y} onChange={(e) => handleInputChange(1, 'position', 'y', Number(e.target.value))} /></label>
-        <label>Width: <input type="number" value={rect1.size.width} onChange={(e) => handleInputChange(1, 'size', 'width', Number(e.target.value))} /></label>
-        <label>Height: <input type="number" value={rect1.size.height} onChange={(e) => handleInputChange(1, 'size', 'height', Number(e.target.value))} /></label>
+      <canvas 
+        ref={canvasRef}
+        width={500}
+        height={300}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
+        className="border rounded border-gray-300"
+      />
+    </div>
+    <div className="flex flex-row gap-x-6">
+      <div className="flex flex-col items-start justify-center gap-y-4 mb-8">
+        <h3 className="text-xl font-bold">Rectangle 1</h3>
+        <label>
+          <p className="mr-4 text-gray-500">X:</p>
+          <input className="rounded border border-gray-300 focus:border-green-500 p-1" type="number" value={rect1.position.x} onChange={(e) => handleInputChange(1, 'position', 'x', Number(e.target.value))} />
+        </label>
+        <label>
+          <p className="mr-4 text-gray-500">Y:</p>
+          <input className="rounded border border-gray-300 focus:border-green-500 p-1" type="number" value={rect1.position.y} onChange={(e) => handleInputChange(1, 'position', 'y', Number(e.target.value))} />
+        </label>
+        <label>
+          <p className="mr-4 text-gray-500">Width:</p> 
+          <input className="rounded border border-gray-300 focus:border-green-500 p-1" type="number" value={rect1.size.width} onChange={(e) => handleInputChange(1, 'size', 'width', Number(e.target.value))} />
+        </label>
+        <label>
+          <p className="mr-4 text-gray-500">Height:</p> 
+          <input className="rounded border border-gray-300 focus:border-green-500 p-1" type="number" value={rect1.size.height} onChange={(e) => handleInputChange(1, 'size', 'height', Number(e.target.value))} />
+        </label>
       </div>
-      <div>
-        <h3>Rectangle 2</h3>
-        <label>X: <input type="number" value={rect2.position.x} onChange={(e) => handleInputChange(2, 'position', 'x', Number(e.target.value))} /></label>
-        <label>Y: <input type="number" value={rect2.position.y} onChange={(e) => handleInputChange(2, 'position', 'y', Number(e.target.value))} /></label>
-        <label>Width: <input type="number" value={rect2.size.width} onChange={(e) => handleInputChange(2, 'size', 'width', Number(e.target.value))} /></label>
-        <label>Height: <input type="number" value={rect2.size.height} onChange={(e) => handleInputChange(2, 'size', 'height', Number(e.target.value))} /></label>
+      <div className="flex flex-col items-start justify-center gap-y-4 mb-8">
+        <h3 className="text-xl font-bold">Rectangle 2</h3>
+        <label> 
+          <p className="mr-4 text-gray-500">X:</p> 
+          <input className="rounded border border-gray-300 focus:border-green-500 p-1" type="number" value={rect2.position.x} onChange={(e) => handleInputChange(2, 'position', 'x', Number(e.target.value))} />
+        </label>
+        <label> 
+          <p className="mr-4 text-gray-500">Y:</p> 
+          <input className="rounded border border-gray-300 focus:border-green-500 p-1" type="number" value={rect2.position.y} onChange={(e) => handleInputChange(2, 'position', 'y', Number(e.target.value))} />
+        </label>
+        <label> 
+          <p className="mr-4 text-gray-500">Width:</p> 
+          <input className="rounded border border-gray-300 focus:border-green-500 p-1" type="number" value={rect2.size.width} onChange={(e) => handleInputChange(2, 'size', 'width', Number(e.target.value))} />
+        </label>
+        <label>
+          <p className="mr-4 text-gray-500">Height:</p>
+          <input className="rounded border border-gray-300 focus:border-green-500 p-1" type="number" value={rect2.size.height} onChange={(e) => handleInputChange(2, 'size', 'height', Number(e.target.value))} />
+          </label>
       </div>
-      <div>
-        <h3>Connection Point 1</h3>
-        <label>X: <input type="number" value={cPoint1.point.x} onChange={(e) => handleConnectionPointChange(1, 'x', Number(e.target.value))} /></label>
-        <label>Y: <input type="number" value={cPoint1.point.y} onChange={(e) => handleConnectionPointChange(1, 'y', Number(e.target.value))} /></label>
-      </div>
-      <div>
-        <h3>Connection Point 2</h3>
-        <label>X: <input type="number" value={cPoint2.point.x} onChange={(e) => handleConnectionPointChange(2, 'x', Number(e.target.value))} /></label>
-        <label>Y: <input type="number" value={cPoint2.point.y} onChange={(e) => handleConnectionPointChange(2, 'y', Number(e.target.value))} /></label>
-      </div>
-    </div>);
+    </div>
+    <div className="flex flex-col items-start justify-center gap-y-4 mb-8">
+      <h3 className="text-xl font-bold">Connection Point 1</h3>
+      <label>
+        <p className="mr-4 text-gray-500">X:</p> 
+        <input className="rounded border border-gray-300 focus:border-green-500 p-1" type="number" value={cPoint1.point.x} onChange={(e) => handleConnectionPointChange(1, 'x', Number(e.target.value))} />
+      </label>
+      <label>
+        <p className="mr-4 text-gray-500">Y:</p> 
+        <input className="rounded border border-gray-300 focus:border-green-500 p-1" type="number" value={cPoint1.point.y} onChange={(e) => handleConnectionPointChange(1, 'y', Number(e.target.value))} />
+      </label>
+      <h3 className="text-xl font-bold">Connection Point 2</h3>
+      <label> 
+        <p className="mr-4 text-gray-500">X:</p> 
+        <input className="rounded border border-gray-300 focus:border-green-500 p-1" type="number" value={cPoint2.point.x} onChange={(e) => handleConnectionPointChange(2, 'x', Number(e.target.value))} />
+      </label>
+      <label>
+        <p className="mr-4 text-gray-500">Y:</p> 
+        <input className="rounded border border-gray-300 focus:border-green-500 p-1" type="number" value={cPoint2.point.y} onChange={(e) => handleConnectionPointChange(2, 'y', Number(e.target.value))} />
+      </label>
+    </div>
+  </div>);
 };
 
 export default CanvasComponent;

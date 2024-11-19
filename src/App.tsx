@@ -6,7 +6,7 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <h1>Canvas Drawing Example</h1>
+      <h1 className="text-2xl p-6 md:p-8 font-black">Canvas Drawing Example</h1>
       <Canvas  />
     </div>
   );
